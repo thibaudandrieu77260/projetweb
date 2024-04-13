@@ -1,12 +1,35 @@
 {% extends 'base.html.twig'  %}
 
 {% block title %}
-Toutes les Playlist
+Toutes les Playlists
 {% endblock%}
 
 {% block body %}
 
+<p>
 gros caca sur le pipi
+</p> 
 
 
+<table class="table">
+</table>
+    <thead>
+    <tr>
+        <th>Titre</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for playlist in playlists %}
+    <tr>
+        <td>
+            <a href="{{ path('playlists.show}' , {id: playlist.id , slug: playlist.slug}) }}">{{ playlist.title() }}</a>
+        </td> 
+        <td>    
+            <a class="btn btn-primary" href="{{ path('playlist.edit' , {id: playlist.id}) }}">Editer</a>
+        </td> 
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
 {% endblock%}
